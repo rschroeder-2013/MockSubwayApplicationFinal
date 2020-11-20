@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Client Side Scripting Final</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/standard.js" type="text/javascript"></script>
+
+
+    </head>
+
+
+    <body style="background-image: url('images/veggie-body-background-taller.jpg');">   
+
+        <header>
+            <div class="topnav">
+                <a id="logoName" style='font-weight: bold;'></a>
+                <img src="images/sandwichLogo.png" id="sandwichLogo"/>
+                <a href="">Apply</a>
+                <a href="">Careers</a>
+                <a href="">"Food"</a>
+                <a href="">People</a>
+            </div>
+        </header>
+        <h1>Employment Application for The United States</h1>
+        <div id="greeting">
+            <p>We are glad you decided to look into a career with one of the 
+                thousands of Franchisee –owned Subwich® Restaurants.</p>
+
+            <p>Each Subwich® 
+                Restaurant owner is an independent franchisee in the Subwich® 
+                System and is an Equal Opportunity Employer. Various federal, 
+                state, provincial and/or local laws prohibit discrimination on 
+                account of race, color, religion, sex, age, national origin, 
+                disability, veteran’s status or any other prohibited ground of 
+                discrimination as defined in applicable human rights legislation. 
+                It is the Subwich® Restaurant owner's responsibility to comply fully
+                with these laws, as applicable.</p>
+
+            <p>The information provided on this 
+                Employment Application will only be accessible by the hiring 
+                manager at the Subwich® Restaurant(s) which you selected to receive 
+                this Employment Application. Your information is confidential and 
+                will only be disclosed to individuals involved in the Subwich® 
+                Restaurant owner’s normal hiring process and will be used solely 
+                for the purpose of determining employment. It is the Subwich® 
+                Restaurant owner’s responsibility to maintain the confidentiality 
+                of the information contained herein.</p>
+        </div>
+        <main>
+            <div id="sidenav">
+                <p class="sideFont">Step <a id='stepOf' class="sideFont">1</a> of 6 </p>
+                <progress id="progressBar" value="0" max="100">
+
+                </progress>
+            </div>
+
+
+            <div id="accordion">
+
+                <h3 id="part1" onclick="changeProgress(0)">Personal Information</h3>
+                <div>
+                    <form class="formClass" method="get">
+                        <a style="font-weight: bold;">*Indicates required fields</a>
+                        <br />
+                        <br />
+
+                        <div class="greyBoxStyle">
+                            <a style="font-weight: bold;">Position</a>
+                            <br />
+                            <input required type="radio" name="previouslyEmployed" 
+                                   value="Sandwich Virtuoso">
+                            <a>Sandwich Virtuoso</a>
+                            <br />
+                            <input required type="radio" name="previouslyEmployed" 
+                                   value="Manager"/>
+                            <a>Manager</a>
+                        </div>
+
+                        <br />
+                        <br />
+                        <a>First Name*</a>
+                        <a style="margin-left: 160px;">Middle Name</a>
+                        <br />
+                        <input style="width: 49%;" required type="text" 
+                               pattern="[a-zA-Z]" name="formFName"/>
+                        <input style="width: 48.1%;" type="text" 
+                               pattern="[a-zA-Z]" name="formMName"/>
+                        <br />
+                        <a>Last Name*</a>
+                        <br />
+                        <input style="width: 99%;" required type="text" 
+                               pattern="[a-zA-Z]" name="formLName"/>
+
+                        <a>Address 1*</a>
+                        <br />
+                        <input style="width: 99%;" required type="text" 
+                               name="formAddress1" />
+                        <br />
+                        <a>Address 2</a>
+                        <input style="width: 99%;" type="text" 
+                               name="formAddress2" />
+                        <br />
+
+                        <a>City*</a>
+                        <a style="margin-left: 209px;">State*</a>
+                        <br />
+                        <input style="width: 49%;" required type="text" 
+                               pattern="[a-zA-Z]" name="formCity"/>
+                        <input style="width: 48.1%;" required type="text" 
+                               pattern="[a-zA-Z]" name="formState"/>
+                        <br />
+
+                        <a>Country*</a>
+                        <a style="margin-left: 180px;">Postal Code*</a>
+                        <br />
+                        <input style="width: 49%;" required type="text" 
+                               pattern="[a-zA-Z]" name="formCountry"/>
+                        <input style="width: 48.1%;" required type="text" 
+                               pattern="^\d{5}(-\d{4})?$" name="formZip"/>
+                        <br />
+
+                        <a>Primary Phone Number*</a>
+                        <a style="margin-left: 73px;">Alternate Phone Number</a>
+                        <br />
+                        <input pattern="\d{3}[\-]\d{3}[\-]\d{4}" 
+                               style="width: 49%;" required type="tel" name="formPhone1"/>
+                        <input pattern="\d{3}[\-]\d{3}[\-]\d{4}" 
+                               style="width: 48.1%;" type="tel" name="formPhone2"/>
+                    </form>
+                </div>
+
+                <h3 id="part2" onclick="changeProgress(20)">Questionnaire 
+                    Information</h3>
+                <div>
+                    <form class="formClass" method="get">
+                        <div class="greyBoxStyle">
+                            <a style="font-weight: bold;">Have you ever worked 
+                                for a Subwich® Restaurant before?</a>
+                            <br />
+                            <input id="prevWorkYes" onclick="showEmploySection()" 
+                                   required type="radio" name="previouslyEmployed"/>
+                            <a>Yes</a>
+                            <br />
+                            <input id="prevWorkNo" onclick="hideEmploySection()" 
+                                   required type="radio" name="previouslyEmployed"/>
+                            <a>No</a>
+                        </div>
+                        <br />
+
+                        <div id="prevEmployed" class="greenBoxStyle hide">
+                            <a style="color: white;">Work For Subwich® 
+                                Restaurant Before Details</a>
+                            <input style="width: 99%;" type="text" />
+                        </div>
+                        <br />
+
+                        <div class="greyBoxStyle">
+                            <a style="font-weight: bold;">Are you legally able 
+                                to be employed in this country?</a>
+                            <br />
+                            <a>If hired, verification will be required by law</a>
+                            <br />
+                            <input required type="radio" name="legalToWork" 
+                                   value="Yes"/>
+                            <a>Yes</a>
+                            <br />
+                            <input required type="radio" name="legalToWork" 
+                                   value="No"/>
+                            <a>No</a>
+                            <br />
+                            <br />
+                            <a>Date available to start*</a>
+                            <br />
+                            <input required id="datepickerStart" 
+                                   placeholder="Click to open calendar">
+                        </div>
+                        <br />
+
+                        <div class="greyBoxStyle">
+
+                            <a style="font-weight: bold;">What type of position 
+                                are you seeking?</a>
+                            <br />
+                            <input required type="radio" name="positionType" value="Full Time"/>
+                            <a>Full Time</a>
+                            <br />
+                            <input required type="radio" name="positionType" value="Part Time"/>
+                            <a>Part Time</a>
+
+                        </div>
+                    </form>
+                </div>
+
+                <h3 id="part3" onclick="changeProgress(40)">Availability</h3>
+                <div>
+                    <div class="greenBoxStyle">
+                        <a style="font-weight: bold; color: white;">I would be 
+                            able to work most of the weeks during these times:</a>
+                        <br />
+                        <a style="color: white;">Please tell us about your 
+                            availability. In the spaces below, for each day, 
+                            please type in the hours you are available to work. 
+                            Don’t forget to specify AM or PM. Example: 8am- 6 
+                            pm or noon – 10 pm.</a>
+                    </div>
+                    <br />
+                    <form method="get">
+                        <div class="greenBoxStyle">
+                            <a style="color: white;">Total Hours Available Per Week*</a>
+                            <input required style="width: 99%;" type="text" />
+                        </div>
+
+                        <div class="greyBoxStyle">
+
+                            <a>Sunday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Monday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Tuesday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Wednesday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Thursday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Friday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a>Saturday</a>
+                            <input required style="width: 75%; float: right;" type="text" />
+                        </div>
+                        <br />
+                        <div class="greyBoxStyle">
+
+                            <a style="font-weight: bold;">Are there any days or
+                                hours that you are not available to work?</a>
+                            <br />
+                            <input id="offWorkYes" onclick="showAvailSection()" 
+                                   required type="radio" name="offWork"/>
+                            <a>Yes</a>
+                            <br />
+                            <input id="offWorkNo" onclick="hideAvailSection()" 
+                                   required type="radio" name="offWork"/>
+                            <a>No</a>
+                            <br />
+                            <br />
+                            <div id="offWorkReason" class="hide">
+                                <a>If yes, please explain.</a>
+                                <input required style="width: 99%; float: right;" type="text" />
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <h3 id="part4" onclick="changeProgress(60)">Education Information</h3>
+                <div class="greyBoxStyle">
+                    <form method="get">
+                        <a style="font-weight: bold;">Please describe your most recent education experience.</a>
+                        <br />
+                        <br />
+                        <input required type="radio" name="educationLevel" value="High School"/>
+                        <a>High School</a>
+                        <br />
+                        <input required type="radio" name="educationLevel" value="Some College"/>
+                        <a>Some College</a>
+                        <br />
+                        <input required type="radio" name="educationLevel" value="College"/>
+                        <a>College</a>
+                        <br />
+                        <br />
+                        <a>Institute*</a>
+                        <input required type="text" style="width: 80%;" />
+                    </form>
+                </div>
+
+                <h3 id="part5" onclick="changeProgress(80)">References</h3>
+                <div>
+                    <form method="get" class="formClass">
+                        <a style="font-weight: bold;">Reference 1</a>
+                        <br />
+                        <br />
+                        <a>First Name</a>
+                        <br />
+                        <input style="width: 99%;" type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <br />
+                        <a>Last Name</a>
+                        <br />
+                        <input style="width: 99%;" type="text" 
+                               pattern="[a-zA-Z]"/>
+
+                        <a>Address</a>
+                        <br />
+                        <input style="width: 99%;" type="text" />
+                        <br />
+                        <a>Email</a>
+                        <input style="width: 99%;" type="email" />
+                        <br />
+
+                        <a>City</a>
+                        <a style="margin-left: 209px;">State</a>
+                        <br />
+                        <input style="width: 49%;" required type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <input style="width: 48.1%;" required type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <br />
+
+                        <a>Country</a>
+                        <a style="margin-left: 180px;">Postal Code</a>
+                        <br />
+                        <input style="width: 49%;" type="text" 
+                               pattern="[a-zA-Z]" name="formCountry"/>
+                        <input style="width: 48.1%;" type="text" 
+                               pattern="^\d{5}(-\d{4})?$" name="formZip"/>
+                        <br />
+
+                        <a>Primary Phone Number</a>
+                        <br />
+                        <input pattern="\d{3}[\-]\d{3}[\-]\d{4}" style="width: 99%;" 
+                               type="tel" />
+
+                        <a>Relation</a>
+                        <br />
+                        <input style="width: 99%;" type="text"/>
+
+                        <br />
+                        <br />
+
+                        <a style="font-weight: bold;">Reference 2</a>
+                        <br />
+                        <br />
+                        <a>First Name</a>
+                        <br />
+                        <input style="width: 99%;" type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <br />
+                        <a>Last Name</a>
+                        <br />
+                        <input style="width: 99%;" type="text" 
+                               pattern="[a-zA-Z]"/>
+
+                        <a>Address</a>
+                        <br />
+                        <input style="width: 99%;" type="text" />
+                        <br />
+                        <a>Email</a>
+                        <input style="width: 99%;" type="email" />
+                        <br />
+
+                        <a>City</a>
+                        <a style="margin-left: 209px;">State</a>
+                        <br />
+                        <input style="width: 49%;" required type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <input style="width: 48.1%;" required type="text" 
+                               pattern="[a-zA-Z]"/>
+                        <br />
+
+                        <a>Country</a>
+                        <a style="margin-left: 180px;">Postal Code</a>
+                        <br />
+                        <input style="width: 49%;" type="text" 
+                               pattern="[a-zA-Z]" name="formCountry"/>
+                        <input style="width: 48.1%;" type="text" 
+                               pattern="^\d{5}(-\d{4})?$" name="formZip"/>
+                        <br />
+
+                        <a>Primary Phone Number</a>
+                        <br />
+                        <input pattern="\d{3}[\-]\d{3}[\-]\d{4}" style="width: 99%;" 
+                               type="tel" />
+                        <a>Relation</a>
+                        <br />
+                        <input style="width: 99%;" type="text"/>
+                        <br />  
+                    </form>
+                </div>
+
+                <h3 id="part6" onclick="changeProgress(100)">Questions?</h3>
+                <div class="greyBoxStyle">
+                    <form method="get">
+                        <a style="font-weight: bold;">Do you have any questions?</a>
+                        <br />
+                        <br />
+                        <textarea placeholder="Enter questions here...Max 200 characters" 
+                                  style="resize: none; height: 200px; width: 505px;" maxlength="200"></textarea>
+
+                        <button class="ui-button ui-widget ui-corner-all" id="submit" >Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+            <a>Subwich® is not a Registered Trademark of Subwich IP, LLC. and is 
+                used herein with permission.</a>
+            <br />
+            <a>©2019 Independent Purchasing Cooperative, Inc. All rights reserved.
+                Privacy policy   Terms and conditions</a>
+
+        </footer>
+    </body>
+</html>
